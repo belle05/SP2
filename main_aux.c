@@ -4,8 +4,19 @@
 #include <ctype.h>
 
 
-bool check_validity(){
+bool check_validity(int numOfHeaps, int start, int end){
+	if(numOfHeaps>end || numOfHeaps < start) {
+			return 0;
+	}
+	return 1;
 
+}
+
+bool chaeck_validity_positive(int size){
+	if (size<=0){
+		return 0;
+	}
+	return 1;
 }
 
 void end_game(int turn) {
@@ -46,6 +57,7 @@ void print_status(int *heaps, int round){
 	printf("\n");
 
 }
+
 void graph_status(int *heaps) {
 	int max = 0;
 	for (unsigned int i = 0; i<sizeof(heaps);i++) {
@@ -69,6 +81,4 @@ void graph_status(int *heaps) {
 		}
 		printf("\n");
 	}
-
-
 }
