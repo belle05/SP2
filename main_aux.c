@@ -82,3 +82,25 @@ void graph_status(int *heaps) {
 		printf("\n");
 	}
 }
+
+void player_turn(int *heaps){
+	int heapIndex;
+	int toRemove;
+	bool isValid = False;
+
+	while(!isValid) {
+		printf("Your turn: please enter the heap index and the number of removed objects.\n");
+		scanf ("%d", &heapIndex);
+		scanf ("%d", &toRemove);
+
+		isValid = (check_validity(heapIndex, 0, sizeof(heaps))) && (check_validity(toRemove, 1, heaps[heapIndex])))
+
+		if (isValid) {
+			printf("You take %d objects from heap %d.\n", toRemove, heapIndex);
+			reduce_heaps(heaps, heapIndex, toRemove);
+		} else {
+			printf("Error: Invalid input.\nPlease enter again the heap index and the number of removed objects.\n");
+		}
+	}
+
+}
