@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-
 bool check_validity(int numOfHeaps, int start, int end){
 	if(numOfHeaps>end || numOfHeaps < start) {
 			return 0;
@@ -28,7 +27,6 @@ void end_game(int turn) {
 }
 
 int * start_game(){
-
 	int numOfHeaps;
 
 	printf("Enter the number of heaps:\n");

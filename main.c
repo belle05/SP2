@@ -6,6 +6,8 @@
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
+#include <sp_nim.h>
+#include <main_aux.h>
 #include "SPBufferset.h"
 
 int main()
@@ -19,7 +21,7 @@ int main()
 	if (heaps==NULL){
 		return 0;
 	}
-	while(check_if_empty){
+	while(check_if_empty(heaps)){
 		print_status(heaps, round);
 		if (turn == 1) {
 			graph_status(heaps);
