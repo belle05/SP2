@@ -6,8 +6,6 @@
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
-#include <sp_nim.h>
-#include <main_aux.h>
 #include "SPBufferset.h"
 
 int main()
