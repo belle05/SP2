@@ -27,8 +27,10 @@ int main()
 		} else {
 			computer_turn(heaps);
 		}
+		if (turn == 0) turn = 1;
+		else (turn == 1) turn = 0;
+		round++;
 	}
 	end_game(turn);
 }
-
 
