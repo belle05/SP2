@@ -1,4 +1,4 @@
- /*
+  /*
  *  Created on: Mar 27, 2017
  *      Author: nlevy
  */
@@ -14,7 +14,7 @@ int main()
 {
         SP_BUFF_SET();
         int turn = 0;
-        int round = 0;
+        int round = 1;
 
         int *heaps = start_game();
         if (heaps==NULL){
