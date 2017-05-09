@@ -35,18 +35,24 @@ void computer_turn(int *heaps){
         int tmp_i = 0;
         int min_i = 0;
         if (s_nim == 0) {
-                toRemove = 1;
-                for (int i = 1; i<numOfHeapsFromUser; i++) {
-                        if (heaps[i] < heaps[min_i]) {
+                for (int z = 0; z<numOfHeapsFromUser;z++){
+                        if (heaps[z] >0) {
+                                min_i = z;
+                                break;
+                        }
+                }
+                for (int i = min_i; i<numOfHeapsFromUser; i++) {
+                        if (heaps[i] < heaps[min_i]&& (heaps[i] > 0)) {
                                 min_i = i;
                         }
                 }
+                toRemove = 1;
         } else {
-                for (int i = 0; i<numOfHeapsFromUser; i++) {
-                        tmp_i = heaps[i] - (heaps[i]^s_nim);
-                        if (tmp_i >0 && tmp_i < min_diff) {
+                for (int l = 0; l<numOfHeapsFromUser; l++) {
+                        tmp_i = heaps[l] - (heaps[l]^s_nim);
+                        if (tmp_i >0 && tmp_i < min_diff&&(heaps[l] >0)) {
                                 min_diff = tmp_i;
-                                min_i = i;
+                                min_i = l;
                         }
                 }
                 toRemove = min_diff;
