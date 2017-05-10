@@ -6,6 +6,7 @@
 #include "sp_nim.h"
 #define NUM_OF_HEAPS 32
 int numOfHeapsFromUser;
+//Checks if numOfHeaps provided is between start and end
 bool check_validity(int numOfHeaps, int start, int end){
         if(numOfHeaps>end || numOfHeaps < start) {
                         return 0;
@@ -14,6 +15,7 @@ bool check_validity(int numOfHeaps, int start, int end){
 
 }
 
+//Checks if size is positive
 bool check_validity_positive(int size){
         if (size<=0){
                 return 0;
@@ -21,6 +23,7 @@ bool check_validity_positive(int size){
         return 1;
 }
 
+//Prints the winner
 void end_game(int turn) {
         if (turn==1){
                 printf("Computer wins!\n");
@@ -29,6 +32,7 @@ void end_game(int turn) {
         }
 }
 
+//Creates heaps by the user's requests
 int * start_game(){
         printf("Enter the number of heaps:\n");
         scanf ("%d", &numOfHeapsFromUser);
@@ -37,10 +41,12 @@ int * start_game(){
                         return NULL;
         }
 
+        //Inits heaps to zeros
         static int heapSizes[NUM_OF_HEAPS];
         for (int i = 0; i<NUM_OF_HEAPS;i++) {
                 heapSizes[i] = 0;
         }
+        //Initiate the heaps' sizes to the user's request
         printf("Enter the heap sizes:\n");
         for(int i=0; i<numOfHeapsFromUser; i++) {
                 scanf ("%d", &heapSizes[i]);
@@ -52,7 +58,7 @@ int * start_game(){
         return heapSizes;
 }
 
-
+//Print game status (textual)
 void print_status(int *heaps, int round){
         printf("In turn %d heap sizes are: ",round);
         for (int i = 0; i<numOfHeapsFromUser;i++) {
@@ -66,6 +72,7 @@ void print_status(int *heaps, int round){
 
 }
 
+//Print game status (graphic)
 void graph_status(int *heaps) {
         int max = 0;
         for ( int i = 0; i<numOfHeapsFromUser;i++) {
@@ -91,11 +98,13 @@ void graph_status(int *heaps) {
         }
 }
 
+//Let the user pick heap and how much to decrease it's size
 void player_turn(int *heaps){
         int heapIndex;
         int toRemove;
         bool isValid = false;
         printf("Your turn: please enter the heap index and the number of removed objects.\n");
+        //Request the user's input until it is valid
         while(!isValid) {
                 scanf ("%d", &heapIndex);
                 scanf ("%d", &toRemove);

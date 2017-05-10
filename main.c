@@ -16,10 +16,12 @@ int main()
         int turn = 0;
         int round = 1;
 
+        //Game starts
         int *heaps = start_game();
         if (heaps==NULL){
                 return 0;
         }
+        //Game will continue until there's a winner
         while(!(check_if_empty(heaps))){
                 print_status(heaps, round);
                 if (turn == 1) {
